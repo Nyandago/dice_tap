@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(MaterialApp(
@@ -22,6 +23,17 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+
+  int leftDiceNum = 1;
+  int rightDiceNum = 1;
+
+  void changeDice(){
+    setState(() {
+      leftDiceNum = Random().nextInt(6) + 1;
+      rightDiceNum = Random().nextInt(6) + 1;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -29,17 +41,17 @@ class _MyAppState extends State<MyApp> {
         children: [
           Expanded(
             child: TextButton(
-              child: Image.asset('images/dice1.png'),
+              child: Image.asset('images/dice$leftDiceNum.png'),
               onPressed: () {
-                print('Left Dice Pressed!');
+                changeDice();
               },
             ),
           ),
           Expanded(
             child: TextButton(
-              child: Image.asset('images/dice2.png'),
+              child: Image.asset('images/dice$rightDiceNum.png'),
               onPressed: (){
-                print('Right Dice Pressed');
+                changeDice();
               },
             ),
           ),
