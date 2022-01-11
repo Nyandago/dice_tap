@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+     MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.deepOrange,
+        appBar: AppBar(
+          title: Text('Dice App'),
+          backgroundColor: Colors.blue,
+        ),
+        body: MyApp(),
+      ),
+    )
+  );
 }
 
 class MyApp extends StatefulWidget {
@@ -14,8 +26,13 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Center(
+        child: Row(
+          children: [
+            Expanded(child: Image.asset('images/dice1.png')),
+            Expanded(child: Image.asset('images/dice2.png')),
+          ],
+        ),
+    );
   }
 }
-
-
